@@ -34,11 +34,13 @@ func newCommandContext(
 
 func NewCommandContext(
 	ctx context.Context,
+	logger Logger,
 	slackClient *slack.Client,
 	event *MessageEvent,
+	definition *CommandDefinition,
 	parameters *proper.Properties,
 ) *CommandContext {
-	return newCommandContext(ctx, nil, slackClient, event, nil, parameters)
+	return newCommandContext(ctx, logger, slackClient, event, definition, parameters)
 }
 
 // CommandContext contains information relevant to the executed command
